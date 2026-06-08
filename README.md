@@ -8,7 +8,7 @@ essay "Before You Surcharge the Penthouse, Fix the Foundation."
 | `box1.html` | Box 1 | How the surcharge works, and who has to do what — a 5-step timeline with actors and deadlines |
 | `box2.html` | Box 2 | Five questions the rules still have to answer |
 | `box3.html` | Box 3 | What clear primary-residence rules should look like |
-| `uneven-base.html` | Companion | How the underlying NYC property tax system works — four classes, four valuation logics, and the inequities they produce. Every figure tracked to a primary source. |
+| `uneven-base.html` | Companion | How the underlying NYC property tax system works — four classes, four valuation logics, and the inequities they produce. A compact 4-tab "deck" (paged, not a long scroll) so it doesn't take over the article. Every figure tracked to an official source. |
 
 ## Design
 
@@ -43,9 +43,16 @@ tracked to a primary source, cited in the graphic's own footer:
 - Assessment-increase caps (Class 1 = 6%/yr, 20%/5yr; small Class 2 = 8%/yr, 30%/5yr):
   [N.Y. Real Property Tax Law § 1805](https://www.nysenate.gov/legislation/laws/RPT/1805).
 - Income-approach mandate for co-ops/condos: [RPTL § 581](https://www.nysenate.gov/legislation/laws/RPT/581).
-- All ratios, effective tax rates, and class-share figures (Tables 4, 6, 9, 10, 13; DOF data):
-  [NYC Advisory Commission on Property Tax Reform, "The Road to Reform," Dec. 29, 2021](https://www.nyc.gov/assets/propertytaxreform/downloads/pdf/final-report.pdf).
+- Class shares of market value and levy, and the FY2025 citywide levy ($36.9B) — Class 1 = 49% of value / 14.3% of levy; Class 4 = 22% / 38.5% (Fast Facts; Tables 16, 19):
+  [NYC DOF, Annual Report of the N.Y.C. Real Property Tax, FY2025](https://www.nyc.gov/assets/finance/downloads/pdf/reports/reports-property-tax/nyc_property_fy25.pdf).
+- Median Class 1 assessment ratio of 3.9% vs the 6% target (FY2024 data):
+  [Office of the N.Y.C. Comptroller, Implications of Lowering the Class 1 Assessment Ratio](https://comptroller.nyc.gov/reports/fiscal-note-implications-of-lowering-the-class-1-assessment-ratio/).
+- Co-op/condo value-to-sale-price ratios (25% / 22%), the regressive co-op rate spread ($1.78 → $0.45), and FY2021 borough assessment ratios (Tables 4, 6, 9, 13; DOF data):
+  [NYC Advisory Commission on Property Tax Reform, "The Road to Reform," Dec. 29, 2021](https://www.nyc.gov/assets/propertytaxreform/downloads/pdf/final-report.pdf) — the most recent City analysis to value co-ops and condos by sale price.
 - Litigation: [Tax Equity Now NY LLC v. City of New York, N.Y. Court of Appeals (Mar. 19, 2024)](https://www.nycourts.gov/ctapps/Decisions/2024/Mar24/1opn24-Decision.pdf).
 
-Effective tax rates are medians per $100 of sales-based market value (FY2021). "Assessed at" for Class 1
-is the statutory 6% target before caps; the report shows realized ratios run well below it.
+Vintages are mixed deliberately and labeled on each figure: class shares are the latest FY2025 DOF report; the Class 1
+assessment ratio is the Comptroller's FY2024 figure; the co-op/condo sale-price comparisons are FY2021 (the Advisory
+Commission's special study is the only official analysis that values these homes by sale price — the annual DOF report
+uses the income-approach value and cannot reproduce them). Effective tax rates are medians per $100 of sales-based
+market value. "Assessed at" for Class 1 is the statutory 6% target before caps.
