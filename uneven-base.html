@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The uneven base beneath the surcharge</title>
+<link rel="stylesheet" href="https://use.typekit.net/qqk2vto.css">
+<style>
+:root{
+  --vc-black:#050507;
+  --vc-white:#ffffff;
+  --vc-cloud:#dddddd;
+  --vc-chartreuse:#dde44c;
+  --vc-orange:#ff7c53;
+  --vc-magenta:#e7466d;
+  --vc-charcoal:#707175;
+  --vc-indigo:#394882;
+  --vc-cerulean:#217ebe;
+  --vc-paper:#f7f7f4;
+  --vc-cloud-50:#eeeeee;
+  --vc-sans:"halyard-text","Inter","Helvetica Neue",Arial,sans-serif;
+  --vc-serif:"GascogneTS","Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@font-face{
+  font-family:'GascogneTS';
+  src:url('https://vital-city-nyc.github.io/vital-city-design-system/fonts/GascogneTS-Light.ttf') format('truetype');
+  font-weight:300; font-style:normal; font-display:swap;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;background:var(--vc-white);color:var(--vc-black);}
+body{font-family:var(--vc-sans);font-weight:300;line-height:1.5;padding:24px;-webkit-font-smoothing:antialiased;}
+.card{max-width:820px;margin:0 auto;background:var(--vc-white);border:1px solid var(--vc-black);padding:34px 38px 30px;}
+body.embed{padding:0;}
+body.embed .card{border:none;max-width:none;}
+
+.head h1{font-family:var(--vc-sans);font-weight:900;font-size:1.78rem;line-height:1.12;margin:0 0 12px;letter-spacing:-.01em;}
+.head .dek{font-family:var(--vc-sans);font-weight:300;font-size:1.04rem;color:var(--vc-charcoal);margin:0;max-width:64ch;}
+
+.verdict{margin:24px 0 4px;font-family:var(--vc-serif);font-weight:300;font-size:1.5rem;line-height:1.25;color:var(--vc-black);}
+.verdict .src{display:block;margin-top:6px;font-family:var(--vc-sans);font-weight:700;font-size:.68rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--vc-charcoal);}
+
+.sec-label{font-family:var(--vc-sans);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--vc-black);margin:34px 0 4px;padding-bottom:7px;border-bottom:2px solid var(--vc-black);}
+.sec-note{font-size:.9rem;color:var(--vc-charcoal);margin:10px 0 14px;max-width:64ch;}
+
+/* class table */
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:4px;}
+.tbl th{font-family:var(--vc-sans);font-weight:700;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--vc-charcoal);text-align:left;vertical-align:bottom;padding:0 12px 8px 0;border-bottom:1px solid var(--vc-cloud);}
+.tbl td{padding:12px 12px 12px 0;border-bottom:1px solid var(--vc-cloud);vertical-align:top;}
+.tbl .cls{font-family:var(--vc-sans);font-weight:900;white-space:nowrap;}
+.tbl .cls b{display:block;font-size:1rem;}
+.tbl .cls span{font-weight:300;font-size:.8rem;color:var(--vc-charcoal);}
+.ratio{font-family:var(--vc-serif);font-weight:300;font-size:1.5rem;line-height:1;white-space:nowrap;}
+.ratio.lo{color:var(--vc-magenta);}
+.ratio.hi{color:var(--vc-indigo);}
+.method{font-size:.86rem;}
+.row1 td{background:var(--vc-paper);}
+
+/* caps */
+.caps{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+.cap{border:1px solid var(--vc-black);padding:14px 16px;}
+.cap .who{font-family:var(--vc-sans);font-weight:700;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--vc-charcoal);margin:0 0 6px;}
+.cap .lim{font-family:var(--vc-serif);font-weight:300;font-size:1.7rem;line-height:1.1;}
+.cap .lim small{font-family:var(--vc-sans);font-weight:300;font-size:.82rem;color:var(--vc-charcoal);}
+.callout{margin-top:14px;padding:14px 16px;background:var(--vc-chartreuse);border:1px solid var(--vc-black);font-size:.92rem;}
+.callout b{font-weight:700;}
+
+/* findings stat grid */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:6px;border-top:1px solid var(--vc-cloud);}
+.stat{padding:18px 18px 18px 0;border-bottom:1px solid var(--vc-cloud);}
+.stat:nth-child(odd){padding-right:24px;}
+.stat:nth-child(even){padding-left:24px;border-left:1px solid var(--vc-cloud);}
+.stat .num{font-family:var(--vc-serif);font-weight:300;font-size:2.3rem;line-height:1;color:var(--vc-black);margin-bottom:6px;}
+.stat .num .arrow{color:var(--vc-orange);}
+.stat .lbl{font-size:.9rem;color:var(--vc-black);}
+.stat .lbl b{font-weight:700;}
+.stat .cite{display:block;margin-top:5px;font-family:var(--vc-sans);font-weight:700;font-size:.64rem;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--vc-charcoal);}
+
+.legal{margin-top:22px;padding:16px 18px;background:var(--vc-paper);border-left:3px solid var(--vc-cerulean);}
+.legal .lbl{font-family:var(--vc-sans);font-weight:700;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--vc-cerulean);margin:0 0 5px;}
+.legal p{margin:0;font-size:.92rem;}
+
+.source{margin:26px 0 0;padding-top:14px;border-top:1px solid var(--vc-cloud);
+  font-family:var(--vc-sans);font-weight:300;font-size:.74rem;color:var(--vc-charcoal);line-height:1.5;}
+.source a{color:var(--vc-charcoal);}
+.source .mtitle{font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.68rem;color:var(--vc-black);}
+
+@media(max-width:600px){
+  .card{padding:24px 20px;}
+  .head h1{font-size:1.42rem;}
+  .verdict{font-size:1.25rem;}
+  .caps{grid-template-columns:1fr;}
+  .stats{grid-template-columns:1fr;}
+  .stat:nth-child(even){padding-left:0;border-left:none;}
+  .stat:nth-child(odd){padding-right:0;}
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%;}
+  .tbl thead{display:none;}
+  .tbl td{padding:4px 0;border:none;}
+  .tbl tr{border-bottom:1px solid var(--vc-cloud);padding:12px 0;}
+  .tbl .cls b{font-size:1.05rem;}
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <h1>Four classes, four sets of rules: the uneven base beneath the surcharge</h1>
+    <p class="dek">Before any new tax on second homes, New York City's property tax already values nearly identical properties by wholly different logics. Here is how the base works — and what that produces — drawn entirely from the City's own data and the governing law.</p>
+  </div>
+
+  <p class="verdict">&ldquo;Opaque. Arcane. Inequitable.&rdquo;
+    <span class="src">&mdash; New York City's own Advisory Commission on Property Tax Reform, describing the current system, 2021</span>
+  </p>
+
+  <!-- A. The four classes -->
+  <div class="sec-label">1 / Every property falls into one of four classes, each taxed differently</div>
+  <p class="sec-note">State law sorts all New York City property into four classes. Two properties of the very same market value can be assessed at different fractions of that value, and have their value estimated by entirely different methods, depending only on which class they land in.</p>
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:27%">Class</th><th style="width:18%">Assessed at</th><th>How market value is estimated</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row1">
+        <td class="cls"><b>Class 1</b><span>1&ndash;3 family homes</span></td>
+        <td><span class="ratio lo">6%</span><br><span style="font-size:.78rem;color:var(--vc-charcoal)">of market value</span></td>
+        <td class="method">Comparable sales &mdash; a statistical model of similar homes sold nearby in the prior three years.</td>
+      </tr>
+      <tr>
+        <td class="cls"><b>Class 2</b><span>Co-ops, condos &amp; rentals (3+ units)</span></td>
+        <td><span class="ratio hi">45%</span><br><span style="font-size:.78rem;color:var(--vc-charcoal)">of market value</span></td>
+        <td class="method">Income approach &mdash; co-ops and condos are valued <em>as if they were rental buildings</em>, even though they are not, using imputed rents (Real Property Tax Law &sect; 581).</td>
+      </tr>
+      <tr>
+        <td class="cls"><b>Class 3</b><span>Utility property</span></td>
+        <td><span class="ratio hi">45%</span><br><span style="font-size:.78rem;color:var(--vc-charcoal)">of market value</span></td>
+        <td class="method">Utility company equipment and special-franchise property in the public right-of-way.</td>
+      </tr>
+      <tr>
+        <td class="cls"><b>Class 4</b><span>Commercial &amp; all else</span></td>
+        <td><span class="ratio hi">45%</span><br><span style="font-size:.78rem;color:var(--vc-charcoal)">of market value</span></td>
+        <td class="method">Offices, factories, stores, hotels and lofts &mdash; valued on income or sales.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- B. The caps -->
+  <div class="sec-label">2 / On top of that, state law caps how fast assessments can rise</div>
+  <p class="sec-note">Caps were meant to protect homeowners from sudden spikes. But because values rise fastest where homes are most expensive, the caps quietly push the most-appreciated homes to a lower share of their true value over time.</p>
+  <div class="caps">
+    <div class="cap">
+      <p class="who">Class 1 &mdash; 1&ndash;3 family homes</p>
+      <div class="lim">6% <small>per year</small> &middot; 20% <small>over 5 years</small></div>
+    </div>
+    <div class="cap">
+      <p class="who">Small Class 2 &mdash; 2&ndash;10 unit co-ops, condos &amp; rentals</p>
+      <div class="lim">8% <small>per year</small> &middot; 30% <small>over 5 years</small></div>
+    </div>
+  </div>
+  <div class="callout">Finance's own worked example shows the effect: a home whose market value <b>falls</b> from $150,000 to $140,000 can still see its assessed value <b>rise</b> the same year, because the capped figure is catching up from prior years.</div>
+
+  <!-- C. What it produces -->
+  <div class="sec-label">3 / What these rules produce, in the City's own numbers</div>
+  <p class="sec-note">All figures below are from the Department of Finance's data as compiled in the Advisory Commission's 2021 final report. Effective tax rates are expressed per $100 of sales-based market value, using a common valuation method across classes.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">25% <span style="font-size:1.4rem">/</span> 22%</div>
+      <div class="lbl">The median co-op carries a Finance value of just <b>25%</b> of its sale-based market value; the median condo, <b>22%</b>. The income approach systematically books these homes far below what they sell for.
+        <span class="cite">Road to Reform, Tables 4 &amp; 6 (FY2021)</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">$1.78 <span class="arrow">&rarr;</span> $0.45</div>
+      <div class="lbl">Because the gap widens with price, the effective rate on co-ops is <b>regressive</b>: the lowest-valued co-ops pay a median $1.78 per $100 of value, the highest-valued just $0.45.
+        <span class="cite">Road to Reform, Table 13 (FY2021)</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">2.22% <span class="arrow">vs</span> 4.89%</div>
+      <div class="lbl">The caps mean identical-value homes pay different bills. The median Class 1 home is assessed at <b>2.22%</b> of value in Manhattan but <b>4.89%</b> on Staten Island &mdash; against a 6% target.
+        <span class="cite">Road to Reform, Table 9 (FY2021)</span></div>
+    </div>
+    <div class="stat">
+      <div class="num">48% <span class="arrow">/</span> 14%</div>
+      <div class="lbl">The classes shoulder the levy unevenly. Class 1 holds <b>48%</b> of the City's assessed value but pays <b>14%</b> of the tax; Class 4 holds 24% of value and pays <b>42%</b>.
+        <span class="cite">Road to Reform, Table 10 (FY2021)</span></div>
+    </div>
+  </div>
+
+  <!-- D. legal -->
+  <div class="legal">
+    <p class="lbl">Where it stands legally</p>
+    <p>In March 2024 the New York Court of Appeals revived <em>Tax Equity Now NY LLC v. City of New York</em>, allowing claims to proceed that the system imposes unequal bills on similarly valued properties &mdash; in violation of state Real Property Tax Law &sect; 305(2) and the federal Fair Housing Act, on which the suit alleges a discriminatory disparate impact.</p>
+  </div>
+
+  <p class="source">
+    <span class="mtitle">Sources &amp; method.</span>
+    Tax classes, assessment ratios (Class 1 at 6%; Classes 2, 3, 4 at 45%) and the capped-value example:
+    <a href="https://www.nyc.gov/site/finance/property/property-determining-your-assessed-value.page" target="_blank" rel="noopener">NYC Department of Finance, Determining Your Assessed Value</a> and
+    <a href="https://www.nyc.gov/site/finance/property/property-determining-your-market-value.page" target="_blank" rel="noopener">Determining Your Market Value</a>.
+    Assessment-increase caps: <a href="https://www.nysenate.gov/legislation/laws/RPT/1805" target="_blank" rel="noopener">N.Y. Real Property Tax Law &sect; 1805</a>; income-approach mandate for co-ops and condos: <a href="https://www.nysenate.gov/legislation/laws/RPT/581" target="_blank" rel="noopener">RPTL &sect; 581</a>.
+    All ratios, effective tax rates and class shares: <a href="https://www.nyc.gov/assets/propertytaxreform/downloads/pdf/final-report.pdf" target="_blank" rel="noopener">NYC Advisory Commission on Property Tax Reform, &ldquo;The Road to Reform,&rdquo; Dec. 29, 2021</a> (Tables 4, 6, 9, 10, 13; Department of Finance data).
+    Litigation: <a href="https://www.nycourts.gov/ctapps/Decisions/2024/Mar24/1opn24-Decision.pdf" target="_blank" rel="noopener">Tax Equity Now NY LLC v. City of New York, N.Y. Court of Appeals (Mar. 19, 2024)</a>.
+    Effective tax rates are medians per $100 of sales-based market value (FY2021); &ldquo;assessed at&rdquo; for Class 1 reflects the statutory 6% target before caps. Built for Vital City to accompany Martha E. Stark, &ldquo;Before You Surcharge the Penthouse, Fix the Foundation.&rdquo;
+  </p>
+</div>
+
+<script>
+if(new URLSearchParams(location.search).get('embed')==='1'){
+  document.body.classList.add('embed');
+  var postHeight=function(){
+    var h=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);
+    parent.postMessage({type:'vc-embed-height',id:'pat-base',height:h},'*');
+  };
+  window.addEventListener('load',postHeight);
+  window.addEventListener('resize',postHeight);
+  var n=0,t=setInterval(function(){postHeight();if(++n>15)clearInterval(t);},300);
+}
+</script>
+</body>
+</html>
