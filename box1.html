@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the surcharge works, and who has to do what</title>
+<link rel="stylesheet" href="https://use.typekit.net/qqk2vto.css">
+<style>
+:root{
+  --vc-black:#050507;
+  --vc-white:#ffffff;
+  --vc-cloud:#dddddd;
+  --vc-chartreuse:#dde44c;
+  --vc-orange:#ff7c53;
+  --vc-periwinkle:#9b9fbc;
+  --vc-magenta:#e7466d;
+  --vc-charcoal:#707175;
+  --vc-indigo:#394882;
+  --vc-cerulean:#217ebe;
+  --vc-paper:#f7f7f4;
+  --vc-cloud-50:#eeeeee;
+  --vc-sans:"halyard-text","Inter","Helvetica Neue",Arial,sans-serif;
+  --vc-serif:"GascogneTS","Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@font-face{
+  font-family:'GascogneTS';
+  src:url('https://vital-city-nyc.github.io/vital-city-design-system/fonts/GascogneTS-Light.ttf') format('truetype');
+  font-weight:300; font-style:normal; font-display:swap;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;background:var(--vc-white);color:var(--vc-black);}
+body{font-family:var(--vc-sans);font-weight:300;line-height:1.5;padding:24px;-webkit-font-smoothing:antialiased;}
+.card{max-width:760px;margin:0 auto;background:var(--vc-white);border:1px solid var(--vc-black);padding:34px 36px 30px;}
+body.embed{padding:0;}
+body.embed .card{border:none;max-width:none;}
+
+.head h1{font-family:var(--vc-sans);font-weight:900;font-size:1.7rem;line-height:1.12;margin:0 0 12px;letter-spacing:-.01em;}
+.head .dek{font-family:var(--vc-sans);font-weight:300;font-size:1.02rem;color:var(--vc-charcoal);margin:0 0 4px;max-width:62ch;}
+
+/* timeline */
+.timeline{margin:30px 0 6px;position:relative;}
+.step{position:relative;padding:0 0 26px 70px;}
+.step:last-child{padding-bottom:4px;}
+.step::before{/* connector line */
+  content:"";position:absolute;left:25px;top:6px;bottom:-6px;width:2px;background:var(--vc-cloud);
+}
+.step:last-child::before{display:none;}
+.marker{position:absolute;left:0;top:0;width:52px;height:52px;border-radius:50%;
+  background:var(--vc-white);border:2px solid var(--vc-black);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--vc-serif);font-weight:300;font-size:1.7rem;color:var(--vc-black);z-index:1;}
+.actor{font-family:var(--vc-sans);font-weight:700;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--vc-orange);margin:2px 0 5px;}
+.step h3{font-family:var(--vc-sans);font-weight:700;font-size:1.05rem;margin:0 0 5px;line-height:1.25;}
+.step p{margin:0;font-size:.95rem;color:var(--vc-black);max-width:56ch;}
+.date{display:inline-block;margin-top:9px;font-family:var(--vc-sans);font-weight:700;font-size:.74rem;
+  letter-spacing:.03em;text-transform:uppercase;background:var(--vc-chartreuse);color:var(--vc-black);
+  padding:4px 9px;border:1px solid var(--vc-black);}
+.date.soft{background:var(--vc-paper);color:var(--vc-charcoal);border-color:var(--vc-cloud);}
+
+/* co-op aside */
+.aside{margin:22px 0 0;padding:16px 18px;background:var(--vc-paper);border-left:3px solid var(--vc-magenta);}
+.aside .lbl{font-family:var(--vc-sans);font-weight:700;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--vc-magenta);margin:0 0 5px;}
+.aside p{margin:0;font-size:.92rem;color:var(--vc-black);}
+
+.source{margin:26px 0 0;padding-top:14px;border-top:1px solid var(--vc-cloud);
+  font-family:var(--vc-sans);font-weight:300;font-size:.76rem;color:var(--vc-charcoal);}
+.source a{color:var(--vc-charcoal);}
+
+@media(max-width:560px){
+  .card{padding:24px 20px;}
+  .head h1{font-size:1.4rem;}
+  .step{padding-left:58px;}
+  .marker{width:44px;height:44px;font-size:1.4rem;}
+  .step::before{left:21px;}
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <h1>How the surcharge works, and who has to do what</h1>
+    <p class="dek">The pied-à-terre surcharge takes effect July 1, 2026. The sequence below shows who acts at each step — and the deadlines that make the first year so tight.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="step">
+      <div class="marker">1</div>
+      <div class="actor">Department of Finance</div>
+      <h3>Finance flags homes it believes are not primary residences</h3>
+      <p>Using income-tax filing addresses, residency-based exemptions and other data, Finance values each flagged home and issues a notice of surcharge. The law says you owe the tax even if the notice never reaches you.</p>
+      <span class="date">Notice by Aug. 30, 2026</span>
+    </div>
+
+    <div class="step">
+      <div class="marker">2</div>
+      <div class="actor">Owner</div>
+      <h3>The owner has a window to prove it is a primary residence</h3>
+      <p>For example, by showing it is the address on their New York State resident tax return, that it is rented to a full-time tenant, or that it is occupied by a close family member.</p>
+    </div>
+
+    <div class="step">
+      <div class="marker">3</div>
+      <div class="actor">Department of Finance</div>
+      <h3>Finance makes a final determination</h3>
+      <p>If the home is not exempted, the surcharge stands and the first bill is issued.</p>
+      <span class="date">First bill due Jan. 1, 2027</span>
+    </div>
+
+    <div class="step">
+      <div class="marker">4</div>
+      <div class="actor">Tax Commission &rarr; Court</div>
+      <h3>Challenges go to the Tax Commission</h3>
+      <p>Owners can contest the value, the primary-residence finding, or both, with further review available in court. Expect a wave of challenges in year one.</p>
+    </div>
+
+    <div class="step">
+      <div class="marker">5</div>
+      <div class="actor">Phase two</div>
+      <h3>Finance switches to sales-based values for co-ops and condos</h3>
+      <p>The threshold drops to a uniform $5 million of sale value and the lower house rates (0.8% to 1.3%) apply — if the City can build the unit-level valuation system in time.</p>
+      <span class="date soft">Expected ~Jan. 15, 2028</span>
+    </div>
+  </div>
+
+  <div class="aside">
+    <p class="lbl">For co-ops</p>
+    <p>The bill goes to the cooperative corporation, which must forward notices to shareholders and collect each affected shareholder's surcharge — a job most proprietary leases were never written to handle.</p>
+  </div>
+
+  <p class="source">Source: Martha E. Stark, <a href="#" target="_blank" rel="noopener">&ldquo;Before You Surcharge the Penthouse, Fix the Foundation,&rdquo;</a> Vital City. Dates reflect the law as enacted in the FY2026 state budget; first-year deadlines apply only to 2026.</p>
+</div>
+
+<script>
+if(new URLSearchParams(location.search).get('embed')==='1'){
+  document.body.classList.add('embed');
+  var postHeight=function(){
+    var h=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);
+    parent.postMessage({type:'vc-embed-height',id:'pat-box1',height:h},'*');
+  };
+  window.addEventListener('load',postHeight);
+  window.addEventListener('resize',postHeight);
+  var n=0,t=setInterval(function(){postHeight();if(++n>15)clearInterval(t);},300);
+}
+</script>
+</body>
+</html>
