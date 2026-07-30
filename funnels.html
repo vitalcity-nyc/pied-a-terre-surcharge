@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How the City went about identifying pieds-à-terre, and what it should have done instead</title>
+<link rel="stylesheet" href="https://use.typekit.net/qqk2vto.css">
+<style>
+:root{
+  --vc-black:#050507;
+  --vc-white:#ffffff;
+  --vc-cloud:#dddddd;
+  --vc-chartreuse:#dde44c;
+  --vc-orange:#ff7c53;
+  --vc-periwinkle:#9b9fbc;
+  --vc-magenta:#e7466d;
+  --vc-charcoal:#707175;
+  --vc-indigo:#394882;
+  --vc-cerulean:#217ebe;
+  --vc-paper:#f7f7f4;
+  --vc-sans:"halyard-text","Inter","Helvetica Neue",Arial,sans-serif;
+  --vc-serif:"GascogneTS","Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@font-face{
+  font-family:'GascogneTS';
+  src:url('https://vital-city-nyc.github.io/vital-city-design-system/fonts/GascogneTS-Light.ttf') format('truetype');
+  font-weight:300; font-style:normal; font-display:swap;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;background:var(--vc-white);color:var(--vc-black);}
+body{font-family:var(--vc-sans);font-weight:300;line-height:1.5;padding:24px;-webkit-font-smoothing:antialiased;}
+.card{max-width:760px;margin:0 auto;background:var(--vc-white);border:1px solid var(--vc-black);padding:34px 36px 30px;}
+body.embed{padding:0;}
+body.embed .card{border:none;max-width:none;}
+
+.head h1{font-family:var(--vc-sans);font-weight:900;font-size:1.7rem;line-height:1.12;margin:0 0 12px;letter-spacing:-.01em;}
+.head .dek{font-family:var(--vc-sans);font-weight:300;font-size:1.02rem;color:var(--vc-charcoal);margin:0;max-width:62ch;}
+
+/* toggle */
+.toggle{display:flex;gap:0;margin:22px 0 0;border:1px solid var(--vc-black);}
+.tab{flex:1 1 0;appearance:none;cursor:pointer;background:var(--vc-white);color:var(--vc-black);
+  border:none;border-right:1px solid var(--vc-black);padding:11px 12px;text-align:center;
+  font-family:var(--vc-sans);font-weight:700;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;
+  line-height:1.25;transition:background .14s ease;}
+.tab:last-child{border-right:none;}
+.tab:hover:not(.is-active){background:var(--vc-chartreuse);}
+.tab.is-active{background:var(--vc-black);color:var(--vc-white);}
+.tab:focus-visible{outline:2px solid var(--vc-cerulean);outline-offset:-4px;}
+
+/* deck — panels stacked in one grid cell so height locks to the tallest */
+.deck{display:grid;margin-top:20px;}
+.panel{grid-area:1/1;visibility:hidden;opacity:0;transition:opacity .18s ease;pointer-events:none;}
+.panel.is-active{visibility:visible;opacity:1;pointer-events:auto;}
+
+.panel h2{font-family:var(--vc-sans);font-weight:900;font-size:1.18rem;line-height:1.2;margin:0 0 6px;}
+.panel .sub{font-family:var(--vc-sans);font-weight:300;font-size:.94rem;color:var(--vc-charcoal);
+  margin:0;max-width:62ch;}
+
+/* funnel */
+.funnel{margin:20px 0 0;}
+.band{
+  --t:100; --b:86;
+  position:relative;
+  padding:22px calc((100% - var(--b) * 1%) / 2 + 20px);
+  text-align:center;
+  clip-path:polygon(
+    calc(50% - var(--t) * 0.5%) 0,
+    calc(50% + var(--t) * 0.5%) 0,
+    calc(50% + var(--b) * 0.5%) 100%,
+    calc(50% - var(--b) * 0.5%) 100%);
+}
+.band .tag{font-family:var(--vc-sans);font-weight:700;font-size:.63rem;letter-spacing:.13em;
+  text-transform:uppercase;opacity:.72;margin:0 0 8px;}
+.band .num{font-family:var(--vc-serif);font-weight:300;font-size:2.5rem;line-height:1;margin:0 0 3px;
+  letter-spacing:-.01em;}
+.band .phrase{font-family:var(--vc-sans);font-weight:900;font-size:1.3rem;line-height:1.12;margin:0 0 4px;}
+.band .lbl{font-family:var(--vc-sans);font-weight:700;font-size:.72rem;letter-spacing:.09em;
+  text-transform:uppercase;margin:0 0 9px;}
+.band .est{display:inline-block;font-family:var(--vc-sans);font-weight:700;font-size:.6rem;
+  letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;padding:2px 6px;
+  margin:0 0 9px;opacity:.8;}
+.band p{margin:0 auto;font-size:.87rem;line-height:1.45;max-width:46ch;}
+
+.now .s1{--t:100;--b:86;background:var(--vc-black);color:var(--vc-white);}
+.now .s2{--t:86;--b:70;background:var(--vc-indigo);color:var(--vc-white);}
+.now .s3{--t:70;--b:56;background:var(--vc-magenta);color:var(--vc-white);}
+.now .s4{--t:56;--b:48;background:var(--vc-orange);color:var(--vc-black);}
+.now .s4 .tag{opacity:.65;}
+
+.fix .s1{--t:100;--b:86;background:var(--vc-black);color:var(--vc-white);}
+.fix .s2{--t:86;--b:70;background:var(--vc-cerulean);color:var(--vc-white);}
+.fix .s3{--t:70;--b:56;background:var(--vc-periwinkle);color:var(--vc-black);}
+.fix .s4{--t:56;--b:50;background:var(--vc-chartreuse);color:var(--vc-black);}
+.fix .s3 .tag,.fix .s4 .tag{opacity:.65;}
+
+.result{margin:22px 0 0;padding:16px 18px;background:var(--vc-paper);border-left:3px solid var(--vc-magenta);}
+.fix .result{border-left-color:var(--vc-cerulean);}
+.result .lbl{font-family:var(--vc-sans);font-weight:700;font-size:.7rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--vc-magenta);margin:0 0 5px;}
+.fix .result .lbl{color:var(--vc-cerulean);}
+.result p{margin:0;font-size:.92rem;color:var(--vc-black);}
+
+/* sources (collapsed) */
+.sources{margin-top:22px;border-top:1px solid var(--vc-cloud);padding-top:12px;}
+.sources summary{cursor:pointer;font-family:var(--vc-sans);font-weight:700;font-size:.7rem;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--vc-charcoal);list-style:none;}
+.sources summary::-webkit-details-marker{display:none;}
+.sources summary::after{content:" +";color:var(--vc-orange);}
+.sources[open] summary::after{content:" \2013";}
+.sources .body{margin-top:9px;font-family:var(--vc-sans);font-weight:300;font-size:.75rem;
+  color:var(--vc-charcoal);line-height:1.55;}
+.sources .body p{margin:0;}
+.sources .body p + p{margin-top:8px;}
+
+@media(max-width:600px){
+  .card{padding:24px 18px;}
+  .head h1{font-size:1.35rem;}
+  .tab{font-size:.68rem;letter-spacing:.04em;padding:10px 8px;}
+  .band{padding-left:calc((100% - var(--b) * 1%) / 2 + 12px);
+        padding-right:calc((100% - var(--b) * 1%) / 2 + 12px);}
+  .now .s1,.fix .s1{--t:100;--b:96;}
+  .now .s2,.fix .s2{--t:96;--b:90;}
+  .now .s3,.fix .s3{--t:90;--b:84;}
+  .now .s4,.fix .s4{--t:84;--b:78;}
+  .band .num{font-size:2.1rem;}
+  .band .phrase{font-size:1.1rem;}
+  .band p{font-size:.84rem;}
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <h1>How the City went about identifying pieds-à-terre, and what it should have done instead</h1>
+    <p class="dek">The surcharge applies only to homes that are not the owner's primary residence. Switch between the Department of Finance's actual process and the process recommended in the accompanying essay.</p>
+  </div>
+
+  <div class="toggle" role="tablist" aria-label="Choose a process">
+    <button class="tab is-active" role="tab" aria-selected="true" data-i="0">The City's method</button>
+    <button class="tab" role="tab" aria-selected="false" data-i="1">The recommended method</button>
+  </div>
+
+  <div class="deck">
+
+    <!-- ============ PANEL 1 — the City's process ============ -->
+    <section class="panel now is-active" role="tabpanel" aria-label="What the City did">
+      <h2>How the City narrowed the list</h2>
+      <p class="sub">Finance published every property in New York City under the banner of the surcharge, then mailed about 17,000 letters saying the property "may be subject" to the tax. None says why it arrived.</p>
+
+      <div class="funnel">
+        <div class="band s1">
+          <p class="tag">Step 1 &middot; What Finance published</p>
+          <p class="num">900,000+</p>
+          <p class="lbl">Properties on the public list</p>
+          <p>A roll of essentially every property in the city, released under the banner of a tax almost none of them owe.</p>
+        </div>
+
+        <div class="band s2">
+          <p class="tag">Step 2 &middot; Value screen</p>
+          <p class="num">&asymp;24,000</p>
+          <p class="lbl">Clear the value thresholds</p>
+          <p>Houses valued at $5 million or more; condos and co-ops at $1 million or more.</p>
+        </div>
+
+        <div class="band s3">
+          <p class="tag">Step 3 &middot; Partial residency screen</p>
+          <p class="num">&asymp;17,000</p>
+          <p class="lbl">Warning letters mailed</p>
+          <p>Several thousand properties were pulled out first — almost certainly ones Finance's own records already flag as primary residences.</p>
+        </div>
+
+        <div class="band s4">
+          <p class="tag">Step 4 &middot; The burden shifts</p>
+          <p class="phrase">Every recipient starts from scratch</p>
+          <p class="lbl">Burden of proof: the owner</p>
+          <p>The letter names no missing document and gives no reason it arrived — including to owners Finance had already accepted as residents.</p>
+        </div>
+      </div>
+
+      <div class="result">
+        <p class="lbl">What it produced</p>
+        <p>Thousands of letters went to owners Finance had already screened out, and the public list was broad enough to include the finance commissioner's own home and a former mayor's — both well under the threshold.</p>
+      </div>
+    </section>
+
+    <!-- ============ PANEL 2 — the recommended process ============ -->
+    <section class="panel fix" role="tabpanel" aria-label="What it could do instead" hidden>
+      <h2>How the City could narrow the list</h2>
+      <p class="sub">Two screens run on data Finance already holds or can lawfully obtain would clear the large majority of these owners without asking them for anything. Only the genuinely ambiguous cases get a letter — and that letter says why.</p>
+
+      <div class="funnel">
+        <div class="band s1">
+          <p class="tag">Start here &middot; Value screen</p>
+          <p class="num">&asymp;24,000</p>
+          <p class="lbl">Properties over the thresholds</p>
+          <p>Publish this list, not the 900,000, with a plain caveat: clearing the value line is not the same as owing the tax.</p>
+        </div>
+
+        <div class="band s2">
+          <p class="tag">Screen one &middot; What Finance already knows</p>
+          <p class="num">&asymp;14,000</p>
+          <span class="est">Author's estimate</span>
+          <p>Clear every owner Finance has already accepted as an occupant: the yearly owner-occupancy certification behind the co-op/condo abatement, plus the senior, veteran and STAR exemptions.</p>
+        </div>
+
+        <div class="band s3">
+          <p class="tag">Screen two &middot; What the State can confirm</p>
+          <p class="phrase">The large majority cleared</p>
+          <span class="est">No published figure</span>
+          <p>The surcharge test is the address on the New York State income tax return. Finance doesn't hold it, the State does, and the statute lets the two departments share it.</p>
+        </div>
+
+        <div class="band s4">
+          <p class="tag">Screen three &middot; Who is left</p>
+          <p class="phrase">The ambiguous cases</p>
+          <p>Homes held by an LLC or in trust, rented out, or occupied by a family member. Finance knows which signal was missing for each, so the letter can name it and say exactly what to send.</p>
+        </div>
+      </div>
+
+      <div class="result">
+        <p class="lbl">What it would produce</p>
+        <p>Far fewer letters, and each one a set of instructions rather than a warning. Value stays public, residency screening stays private, and the City still collects the roughly $500 million projected for this year.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <details class="sources">
+    <summary>Figures and how to read them</summary>
+    <div class="body">
+      <p>All figures are as reported in Martha E. Stark's accompanying essay: the published roll of more than 900,000 properties, roughly 24,000 properties above the value thresholds, about 17,000 letters mailed, and the roughly $500 million in revenue projected for this year.</p>
+      <p>Two numbers are not agency figures and are labeled as such. The gap between 24,000 and 17,000 is Stark's inference that Finance ran a partial residency screen; the agency has not published its screening criteria. The roughly 14,000 remaining after a full screen of Finance's own records is explicitly the author's estimate. The share cleared by a State income tax data match is described in the essay as "the large majority" and carries no published figure.</p>
+      <p>Band widths are illustrative, not drawn to scale. A true-to-scale funnel starting at 900,000 would render every later stage invisible.</p>
+    </div>
+  </details>
+</div>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+
+  // Reveal all panels for layout — the grid stack locks height to the tallest.
+  panels.forEach(function(p){p.removeAttribute('hidden');});
+
+  function go(i){
+    panels.forEach(function(p,j){p.classList.toggle('is-active', j===i);});
+    tabs.forEach(function(t,j){
+      t.classList.toggle('is-active', j===i);
+      t.setAttribute('aria-selected', j===i ? 'true' : 'false');
+    });
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){go(+t.dataset.i);});});
+
+  if(new URLSearchParams(location.search).get('embed')==='1'){
+    document.body.classList.add('embed');
+    var postHeight=function(){
+      var h=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);
+      parent.postMessage({type:'vc-embed-height',id:'pat-funnels',height:h},'*');
+    };
+    window.addEventListener('load',postHeight);
+    window.addEventListener('resize',postHeight);
+    document.addEventListener('toggle',postHeight,true);
+    var n=0,t=setInterval(function(){postHeight();if(++n>15)clearInterval(t);},300);
+  }
+})();
+</script>
+</body>
+</html>
